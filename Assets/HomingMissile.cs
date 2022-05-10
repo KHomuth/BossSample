@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HomingMissile : MonoBehaviour
@@ -14,7 +12,7 @@ public class HomingMissile : MonoBehaviour
     private Vector3 startPos;
     private Quaternion startRot;
 
-    Player colsestPlayer;
+    Player closestPlayer;
 
     void Start() {
         setStartPosition();
@@ -37,7 +35,7 @@ public class HomingMissile : MonoBehaviour
 
                 if(distanceToPlayer < closestDistance) {
                     //closestDistance = distanceToPlayer;
-                    colsestPlayer = player;
+                    closestPlayer = player;
                 } else {
                     playerFound = false;
                     resetPosition();
@@ -51,7 +49,7 @@ public class HomingMissile : MonoBehaviour
     }
 
     void homingMove() {
-        Vector3 direction = transform.position - colsestPlayer.transform.position;
+        Vector3 direction = transform.position - closestPlayer.transform.position;
         direction = -direction.normalized;
         transform.rotation = Quaternion.LookRotation(transform.forward, direction);
         transform.position += direction * speed * Time.deltaTime;
