@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Arrow
+  - RightArm
+  - LeftArm
+  - Body
+  - Laser
+  - Boss
   layers:
   - Default
   - TransparentFX

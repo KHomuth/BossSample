@@ -5,7 +5,7 @@ public class HomingMissile : MonoBehaviour
 
     public float speed = 5f;
 
-    public float closestDistance = 6f;
+    public float closestDistance;
 
     private bool playerFound;
 
@@ -19,7 +19,7 @@ public class HomingMissile : MonoBehaviour
     }
 
     void Update() {
-        if(playerFound == true) {
+        if (playerFound == true) {
             homingMove();
         }
     }
@@ -30,12 +30,14 @@ public class HomingMissile : MonoBehaviour
         if(playerList != null) {
             playerFound = true;
 
-            foreach(Player player in playerList) {
+            foreach (Player player in playerList) {
                 float distanceToPlayer = (player.transform.position - transform.position).sqrMagnitude;
 
-                if(distanceToPlayer < closestDistance) {
+                if (distanceToPlayer < closestDistance) {
                     //closestDistance = distanceToPlayer;
+                    
                     closestPlayer = player;
+
                 } else {
                     playerFound = false;
                     resetPosition();
